@@ -5,25 +5,25 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rvz.entity.User;
+import com.rvz.entity.UserDetails;
 import com.rvz.repository.UserRepository;
 @Service
 public class UserService {
 	 @Autowired
      private UserRepository userRepo;
      private static final String  WRONG_RESULT="Invalid Credentails";
-	 public List<User> viewAll() {
+	 public List<UserDetails> viewAll() {
 		 return userRepo.findAll();
 	 }
      
-     public String getUser(User user) {
+     public String getUser(final UserDetails user) {
     	 String username=user.getUsername();
     	 String password=user.getPassword();
     	 if(username==null || password==null) {
     		 return WRONG_RESULT;
     	 }
     	 
-    	 User data=userRepo.findByUsername(username);
+    	 UserDetails data=userRepo.findByUsername(username);
     	 if (data.getUsername().equals(username) && data.getPassword().equals(password)) {
     		 return "Login Successful";
     	 }
@@ -32,7 +32,7 @@ public class UserService {
     	 }
      }
      
-     public String addUser(User user) {
+     public String addUser(final UserDetails user) {
     	 String username=user.getUsername();
     	 String password=user.getPassword();
     	 if(username ==null || password ==null) {

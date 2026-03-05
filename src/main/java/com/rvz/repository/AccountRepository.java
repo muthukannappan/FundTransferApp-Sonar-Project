@@ -3,8 +3,8 @@ package com.rvz.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.rvz.entity.Account;
+import com.rvz.entity.AccountDetail;
 @Repository
-public interface AccountRepository extends JpaRepository<Account, Integer>{
-      public Account findByAccno(int accno);
+public interface AccountRepository extends JpaRepository<AccountDetail, Integer>{
+      public AccountDetail findByAccno(int accno);
 }

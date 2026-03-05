@@ -6,27 +6,27 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Account {
+public class AccountDetail {
 	   @Id
 	   @GeneratedValue(strategy=GenerationType.IDENTITY)
-	   private int accno;
+	   private int accNo;
        private String password;
        private double balance;
-       private String username;
-	   public Account(String password, double balance, String username) {
+       private String userName;
+	   public AccountDetail(final String password,final double balance, String userName) {
 		super();
 		this.password = password;
 		this.balance = balance;
-		this.username = username;
+		this.userName = userName;
 	   }
-	   public Account() {
+	   public AccountDetail() {
 		super();
 	   }
-	   public int getAccno() {
-		   return accno;
+	   public int getAccNo() {
+		   return accNo;
 	   }
-	   public void setAccno(int accno) {
-		   this.accno = accno;
+	   public void setAccno(int accNo) {
+		   this.accNo = accNo;
 	   }
 	   public String getPassword() {
 		   return password;
@@ -40,11 +40,11 @@ public class Account {
 	   public void setBalance(double balance) {
 		   this.balance = balance;
 	   }
-	   public String getUsername() {
-		   return username;
+	   public String getUserName() {
+		   return userName;
 	   }
-	   public void setUsername(String username) {
-		   this.username = username;
+	   public void setUsername(String userName) {
+		   this.userName = userName;
 	   }
        
        

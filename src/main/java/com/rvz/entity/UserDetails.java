@@ -6,31 +6,31 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class User {
+public class UserDetails {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-     private int id;
-     private String username;
+     private int userId;
+     private String userName;
      private String password;
-	 public User() {
+	 public UserDetails() {
 		super();
 	 }
-	 public User(String username, String password) {
+	 public UserDetails(final String userName,final String password) {
 		super();
-		this.username = username;
+		this.userName = userName;
 		this.password = password;
 	 }
 	 public int getId() {
-		 return id;
+		 return userId;
 	 }
 	 public void setId(int id) {
-		 this.id = id;
+		 this.userId = id;
 	 }
 	 public String getUsername() {
-		 return username;
+		 return userName;
 	 }
-	 public void setUsername(String username) {
-		 this.username = username;
+	 public void setUsername(String userName) {
+		 this.userName = userName;
 	 }
 	 public String getPassword() {
 		 return password;

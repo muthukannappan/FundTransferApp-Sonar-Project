@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rvz.entity.User;
+import com.rvz.entity.UserDetails;
 import com.rvz.service.UserService;
 
 @CrossOrigin(origins="http://localhost:5173")
@@ -22,16 +22,16 @@ public class UserController {
 	 private UserService userService;
 	 
 	  @GetMapping
-	  public List<User> viewAll(){
+	  public List<UserDetails> viewAll(){
 		  return userService.viewAll();
 	  }
       @PostMapping("/add")
-      public String addUser(@RequestBody User user) {
+      public String addUser(@RequestBody UserDetails user) {
     	  return userService.addUser(user);
     	 
       }
       @PostMapping("/verify")
-      public String verifyUser(@RequestBody User user) {
+      public String verifyUser(@RequestBody UserDetails user) {
     	  return userService.getUser(user);
     	  
       }

@@ -10,23 +10,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rvz.entity.Account;
+import com.rvz.entity.AccountDetail;
 import com.rvz.service.AccountService;
 @CrossOrigin(origins="http://localhost:5173")
 @RestController
 @RequestMapping("/api/IMPS")
-public class IMPSController {
+public class ImpsController {
      
 	@Autowired
 	private AccountService accService;
 	
      @GetMapping("/all")
-     public List<Account> getAll(){
+     public List<AccountDetail> getAll(){
     	return accService.viewAll();
     
      }
      @PostMapping("/create")
-     public String createAcc(@RequestBody Account acc) {
+     public String createAcc(@RequestBody AccountDetail acc) {
     	return  accService.createAccount(acc);
     	 
      }

@@ -13,28 +13,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rvz.entity.Account;
+import com.rvz.entity.AccountDetail;
 import com.rvz.service.AccountService;
 
 @CrossOrigin(origins="http://localhost:5173")
 @RestController
 @RequestMapping("/api/NEFT")
 
-public class NEFTController {
+public class NeftController {
 	@Autowired
 	private AccountService accService;
 	
      @GetMapping("/all")
-     public List<Account> getAll(){
+     public List<AccountDetail> getAll(){
     	 return accService.viewAll();
      }
      @PostMapping("/create")
-     public String createAcc(@RequestBody Account acc) {
+     public String createAcc(@RequestBody AccountDetail acc) {
     	 return accService.createAccount(acc);
      }
      
      @PostMapping("/transfer/{toAcc}")
-     public String transferMoney(@RequestBody Account acc,@PathVariable int toAcc,@RequestParam int amount) {
+     public String transferMoney(@RequestBody AccountDetail acc,@PathVariable int toAcc,@RequestParam int amount) {
     	 return accService.sendMoney(acc,toAcc,amount);
     	 
      }
